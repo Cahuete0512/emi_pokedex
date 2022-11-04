@@ -5,6 +5,7 @@
 __pycache__
 db.sqlite3
 media
+django_env
 
 # Backup files #
 *.bak
