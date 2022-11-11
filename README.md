@@ -1,6 +1,6 @@
 ## Table of Contents
 1. [Introduction](#Introduction)
-2. [Maquette de EMI_Poke](#Maquette de EMI_Poke)
+2. [Maquette](#Maquette)
 3. [Technologies](#Technologies)
 4. [Installation](#Installation)
 5. [Collaboration](#Collaboration)
@@ -13,7 +13,7 @@ L’objectif de ce projet est de développer un Pokédex.
 _Le Pokédex est un outil qui permet de recenser TOUS les Pokémons du jeu_
 
 ***
-# Maquette de EMI_Poke
+# Maquette
 
 ![Alt text](EMI_Poke_app/Project/Assets/maquettePke.PNG?raw=true "Optional Title")
 ***
