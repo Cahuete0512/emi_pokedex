@@ -19,7 +19,7 @@ _Le Pokédex est un outil qui permet de recenser TOUS les Pokémons du jeu_
 ***
 # Technologies
 
-* [Python](https://docs.python.org/3.9/) : Version 3.9.7
+* [Python](https://docs.python.org/3.9/) : Version 3.9.6
 
 * [Django](https://docs.djangoproject.com/en/4.1/) : Version 4.1.3
 
@@ -49,9 +49,16 @@ Toutes les trois sont élèves en classe B3, groupe 2, cursus CDA option fullsta
 ***
 # Execution
 
-* Activez l'environnement :
+* Activer l'environnement :
 ```
-    $ cd emi_pokedex\django_env\Scripts\activate
+    $ cd emi_pokedex
+    
+    $ django_env2/bin/activate
+```
+
+* Désactiver l'environnement :
+```
+    $ deactivate
 ```
 * Exécutez le serveur de développement :
 ```
