@@ -53,7 +53,7 @@ Toutes les trois sont élèves en classe B3, groupe 2, cursus CDA option fullsta
 ```
     $ cd emi_pokedex
     
-    $ django_env2/bin/activate
+    $ django_env/bin/activate
 ```
 
 * Désactiver l'environnement :
