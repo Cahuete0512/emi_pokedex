@@ -1,22 +1,37 @@
 <!doctype html>
-<html lang="fr">
+<html lang="fr" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 </head>
 <body>
     <div>
-        <h1>Bienvenue sur Django !</h1>
-        <p>Bonjour {{name}} !</p>
+        <h1>Pokedex</h1>
+
     </div>
-    Voici la liste des armes à votre disposition :
-    <ul>
-        {% for weapon in weaponsList %}
-        <li>{{ weapon }}</li>
-        {% endfor %}
-    </ul>
+
+<br/><br/>
+<div class="row row-cols-1 col-lg-12 row-cols-md-5 g-4">
+
+
+     {% for weapon in weaponsList %}
+<div class="col">
+    <div class="card" style="width: 400px">
+  <img class="card-img-top" src="https://www.supersoluce.com/sites/default/files/logo1/54-pokemon-go-psykokwak-vignette_-_copie.png" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">{{ weapon }}</h5>
+    <p class="card-text">eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeSome quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <a href="#" class="align-self-end btn btn-lg btn-block btn-primary">Go somewhere</a>
+  </div>
+    </div>
+           </div>
+         {% endfor %}
+
+    </div>
+
 </body>
 </html>

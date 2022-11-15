@@ -6,4 +6,5 @@ urlpatterns = [
     path('', views.index, name="index"),
     path('hello/', views.hello, name="hello"),
     path('result/<int:number>/', views.result, name="result"),
+    path('naviguer/', views.navivguerEntrePokemon, name="navivguerEntrePokemon"),
 ]
