@@ -4,7 +4,7 @@ from django.http import HttpResponse
 def index(request):
     context = {
         'name' : 'John Doe',
-        'weaponsList' : ['Epée', 'Bouclier', 'Petite cuillère']
+        'weaponsList' : ['Epée', 'Bouclier', 'Petite cuillère','Test 1','Test 1', 'Test 1', 'Test 1']
     }
     return render(request, './index.html', context)
 
@@ -16,6 +16,11 @@ def result(request, number):
     text = "Le resultat de la requete %d." %number
     return HttpResponse(text)
 
-
+def navivguerEntrePokemon(request):
+    context = {
+        'name' : 'John Doe',
+        'weaponsList' : ['Epée', 'Bouclier', 'Petite cuillère','Test 1','Test 1', 'Test 1', 'Test 1']
+    }
+    return render(request, './naviguerEntrePokemon.html', context)
 
 
