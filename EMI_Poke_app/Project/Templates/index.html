@@ -8,11 +8,56 @@
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 </head>
-<body>
-    <div>
-        <h1>Pokedex</h1>
-
+<nav class="navbar navbar-expand-lg navbar-light bg-light navbar-dark bg-dark">
+  <a class="navbar-brand" href="/app" style="margin-left:50px;">EMI-POKE</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="/app">Accueil <span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Equipes
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a href="/app/equipe_1">Equipe_1</a>
+                    <a href="/app/equipe_2">Equipe_2</a>
+                    <a href="/app/equipe_3">Equipe_3</a>
+                    <a href="/app/equipe_4">Equipe_4</a>
+                    <a href="/app/equipe_5">Equipe_5</a>
+                </div>
+            </li>
+        </ul>
     </div>
+</nav>&nbsp;
+<body>
+<div>
+    <h1 style="text-align: center;">Pokedex</h1>&nbsp;
+    <form style="margin-left:50px;">
+        <div class="form-row align-items-center">
+            <div class="form-group col-md-4">
+                <label for="formPokemonToTeam">Nom du Pokemon à ajouter :</label>
+                <input type="text" class="form-control" id="formPokemonToTeam">
+            </div><br>
+            <div class="form-group col-md-4">
+                <label for="inputTeam">Pour quelle équipe ?</label>
+                <select id="inputTeam" class="form-control">
+                    <option selected>Choose...</option>
+                    <option>Equipe 1</option>
+                    <option>Equipe 2</option>
+                    <option>Equipe 3</option>
+                    <option>Equipe 4</option>
+                    <option>Equipe 5</option>
+                </select>
+            </div>
+        </div><br>
+        <button type="submit" class="btn btn-primary">Sign in</button>
+    </form>
+</div>
 
 <br/><br/>
 <div class="row row-cols-1 col-lg-12 row-cols-md-5 g-4">
@@ -32,6 +77,5 @@
          {% endfor %}
 
     </div>
-
 </body>
 </html>
