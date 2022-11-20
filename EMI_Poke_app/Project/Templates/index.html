@@ -9,27 +9,29 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 </head>
 <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-dark bg-dark">
-  <a class="navbar-brand" href="/app" style="margin-left:50px;">EMI-POKE</a>
+  <a class="navbar-brand" href="{% url 'index' %}" style="margin-left:50px;">EMI-POKE</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
             <li class="nav-item active">
-                <a class="nav-link" href="/app">Accueil <span class="sr-only"></span></a>
+                <a class="nav-link" href="{% url 'index' %}">Accueil <span class="sr-only"></span></a>
             </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink"
-                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Equipes
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a href="/app/equipe_1">Equipe_1</a>
-                    <a href="/app/equipe_2">Equipe_2</a>
-                    <a href="/app/equipe_3">Equipe_3</a>
-                    <a href="/app/equipe_4">Equipe_4</a>
-                    <a href="/app/equipe_5">Equipe_5</a>
-                </div>
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'cartesEquipe_1' %}">Equipe_1<span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'cartesEquipe_2' %}">Equipe_2 <span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'cartesEquipe_3' %}">Equipe_3 <span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'cartesEquipe_4' %}">Equipe_4 <span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'cartesEquipe_5' %}">Equipe_5 <span class="sr-only"></span></a>
             </li>
         </ul>
     </div>
@@ -57,9 +59,64 @@
         </div><br>
         <button type="submit" class="btn btn-primary">Sign in</button>
     </form>
-</div>
+</div>&nbsp;
+<hr>&nbsp;
 
-<br/><br/>
+<!--FIXME : Décommenter et adapter quand la liste de Pokemons sera récupérée de l'API-->
+<!--<div>-->
+<!--    <table class="table table-striped table-hover">-->
+<!--        <thead>-->
+<!--        <tr>-->
+<!--            <th scope="col">Espèce</th>-->
+<!--            <th scope="col">Type</th>-->
+<!--            <th scope="col">Capacité</th>-->
+<!--            <th scope="col">Poids</th>-->
+<!--        </tr>-->
+<!--        </thead>-->
+<!--        <tbody>-->
+<!--        <tr>-->
+<!--            {% for weapon in weaponsList %}-->
+<!--            <th scope="row">{{Pokemon.speciesName}}</th>-->
+<!--            <td>{{Pokemon.types}}</td>-->
+<!--            <td>{{Pokemon.abilities}}</td>-->
+<!--            <td>{{Pokemon.weight}}</td>-->
+<!--            {% endfor %}-->
+<!--        </tr>-->
+<!--    </table>-->
+<!--</div>-->
+
+<div>
+    <table class="table table-striped table-hover">
+        <thead>
+        <tr>
+            <th scope="col">Espèce</th>
+            <th scope="col">Type</th>
+            <th scope="col">Capacité</th>
+            <th scope="col">Poids</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">Bulbasaur</th>
+            <td>Grass, Poison</td>
+            <td>overgrow, chlorophyll</td>
+            <td>69</td>
+        </tr>
+         <tr>
+            <th scope="row">Amaura</th>
+            <td>Rock, Ice</td>
+            <td>refrigerate, snow warning</td>
+            <td>25,2</td>
+        </tr>
+         <tr>
+            <th scope="row">Butterfree</th>
+            <td>Bug, Flying</td>
+            <td>compound eyes, tinted Lens</td>
+            <td>32</td>
+        </tr>
+    </table>
+</div>&nbsp;
+<hr>&nbsp;
 <div class="row row-cols-1 col-lg-12 row-cols-md-5 g-4">
 
 
