@@ -7,6 +7,8 @@ urlpatterns = [
     path('hello/', views.hello, name="hello"),
     path('result/<int:number>/', views.result, name="result"),
     path('naviguer/', views.naviguerEntrePokemon, name="naviguerEntrePokemon"),
+    # FIXME : Modifier les url quand l'entité équipe sera faite par :
+    #  path('equipe/equipe_1', views.equipe, name="cartesEquipe_1") et ainsi de suite pour chaque équipe
     path('equipe_1/', views.equipe, name="cartesEquipe_1"),
     path('equipe_2/', views.equipe, name="cartesEquipe_2"),
     path('equipe_3/', views.equipe, name="cartesEquipe_3"),

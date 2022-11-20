@@ -1,67 +1,51 @@
 <!doctype html>
 <html lang="fr" xmlns="http://www.w3.org/1999/html">
+{% include 'navBar.html' %}
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 </head>
-<nav class="navbar navbar-expand-lg navbar-light bg-light navbar-dark bg-dark">
-  <a class="navbar-brand" href="{% url 'index' %}" style="margin-left:50px;">EMI-POKE</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav">
-            <li class="nav-item active">
-                <a class="nav-link" href="{% url 'index' %}">Accueil <span class="sr-only"></span></a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="{% url 'cartesEquipe_1' %}">Equipe_1<span class="sr-only"></span></a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="{% url 'cartesEquipe_2' %}">Equipe_2 <span class="sr-only"></span></a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="{% url 'cartesEquipe_3' %}">Equipe_3 <span class="sr-only"></span></a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="{% url 'cartesEquipe_4' %}">Equipe_4 <span class="sr-only"></span></a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="{% url 'cartesEquipe_5' %}">Equipe_5 <span class="sr-only"></span></a>
-            </li>
-        </ul>
-    </div>
-</nav>&nbsp;
 <body>
 <div>
     <h1 style="text-align: center;">Pokedex</h1>&nbsp;
-    <form style="margin-left:50px;">
-        <div class="form-row align-items-center">
-            <div class="form-group col-md-4">
-                <label for="formPokemonToTeam">Nom du Pokemon à ajouter :</label>
-                <input type="text" class="form-control" id="formPokemonToTeam">
-            </div><br>
-            <div class="form-group col-md-4">
-                <label for="inputTeam">Pour quelle équipe ?</label>
-                <select id="inputTeam" class="form-control">
-                    <option selected>Choose...</option>
-                    <option>Equipe 1</option>
-                    <option>Equipe 2</option>
-                    <option>Equipe 3</option>
-                    <option>Equipe 4</option>
-                    <option>Equipe 5</option>
-                </select>
+</div>
+<div class="card w-75 shadow p-3 mb-5 bg-whit gap-2 col-6 mx-auto">
+    <div class="card-header">
+        <h5>Assignez un Pokemon à une équipe</h5>
+    </div>
+    <div class="card-body">
+<!--        TODO : Mettre bon lien pour l action-->
+        <form action="{% url 'cartesEquipe_1' %}" method="post" style="margin-left:50px;">
+            <div class="form-row align-items-center">
+                <div class="form-group col-md-5">
+                    <label for="formPokemonToTeam">Nom du Pokemon à ajouter :</label>
+                    <input type="text" placeholder="Ex: Bulbasaur" class="form-control" id="formPokemonToTeam">
+                </div>
+                <br>
+                <div class="form-group col-md-5">
+                    <label for="inputTeam">Pour quelle équipe ?</label>
+                    <select id="inputTeam" class="form-control">
+                        <option selected>Choose...</option>
+                        <option>Equipe 1</option>
+                        <option>Equipe 2</option>
+                        <option>Equipe 3</option>
+                        <option>Equipe 4</option>
+                        <option>Equipe 5</option>
+                    </select>
+                </div>
             </div>
-        </div><br>
-        <button type="submit" class="btn btn-primary">Sign in</button>
-    </form>
-</div>&nbsp;
+            <br>
+            <button type="submit" class="btn btn-primary">Valider</button>
+        </form>
+    </div>
+</div>
+&nbsp;
 <hr>&nbsp;
-
 <!--FIXME : Décommenter et adapter quand la liste de Pokemons sera récupérée de l'API-->
 <!--<div>-->
 <!--    <table class="table table-striped table-hover">-->
@@ -84,55 +68,69 @@
 <!--        </tr>-->
 <!--    </table>-->
 <!--</div>-->
-
-<div>
-    <table class="table table-striped table-hover">
-        <thead>
-        <tr>
-            <th scope="col">Espèce</th>
-            <th scope="col">Type</th>
-            <th scope="col">Capacité</th>
-            <th scope="col">Poids</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <th scope="row">Bulbasaur</th>
-            <td>Grass, Poison</td>
-            <td>overgrow, chlorophyll</td>
-            <td>69</td>
-        </tr>
-         <tr>
-            <th scope="row">Amaura</th>
-            <td>Rock, Ice</td>
-            <td>refrigerate, snow warning</td>
-            <td>25,2</td>
-        </tr>
-         <tr>
-            <th scope="row">Butterfree</th>
-            <td>Bug, Flying</td>
-            <td>compound eyes, tinted Lens</td>
-            <td>32</td>
-        </tr>
-    </table>
+<div class="card w-75 shadow p-3 mb-5 bg-whit gap-2 col-6 mx-auto">
+    <div class="card-header">
+        <h5>Liste des Pokemons</h5>
+    </div>
+    <div class="container">
+        <table class="table table-striped table-hover table-bordered">
+            <thead>
+            <tr>
+                <th style="width:10%" scope="col">Espèce</th>
+                <th style="width:10%" scope="col">Type</th>
+                <th style="width:10%" scope="col">Capacité</th>
+                <th style="width:10%" scope="col">Poids</th>
+                <th style="width:10%" scope="col">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">Bulbasaur</th>
+                <td>Grass, Poison</td>
+                <td>overgrow, chlorophyll</td>
+                <td>69</td>
+                <!--            TODO : Mettre lien dynamiquement de la page "naviguerEntrePokemon/{id_Pokemon}" pour chaque Pokemon dans l'itération sur le tableau"-->
+                <td><a href="{% url 'naviguerEntrePokemon' %}">Détails</a></td>
+            </tr>
+            <tr>
+                <!--            TODO : Mettre lien de Amaura de la page "naviguerEntre Pokemon"-->
+                <th scope="row">Amaura</th>
+                <td>Rock, Ice</td>
+                <td>refrigerate, snow warning</td>
+                <td>25,2</td>
+                <td>Détails</td>
+            </tr>
+            <tr>
+                <th scope="row">Butterfree</th>
+                <td>Bug, Flying</td>
+                <td>compound eyes, tinted Lens</td>
+                <td>32</td>
+                <td>Détails</td>
+            </tr>
+        </table>
+    </div>
 </div>&nbsp;
 <hr>&nbsp;
 <div class="row row-cols-1 col-lg-12 row-cols-md-5 g-4">
 
 
-     {% for weapon in weaponsList %}
-<div class="col">
-    <div class="card" style="width: 400px">
-  <img class="card-img-top" src="https://www.supersoluce.com/sites/default/files/logo1/54-pokemon-go-psykokwak-vignette_-_copie.png" alt="Card image cap">
-  <div class="card-body">
-    <h5 class="card-title">{{ weapon }}</h5>
-    <p class="card-text">eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeSome quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href="#" class="align-self-end btn btn-lg btn-block btn-primary">Go somewhere</a>
-  </div>
+    {% for weapon in weaponsList %}
+    <div class="col">
+        <div class="card" style="width: 400px">
+            <img class="card-img-top"
+                 src="https://www.supersoluce.com/sites/default/files/logo1/54-pokemon-go-psykokwak-vignette_-_copie.png"
+                 alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">{{ weapon }}</h5>
+                <p class="card-text">
+                    eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeSome quick
+                    example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="#" class="align-self-end btn btn-lg btn-block btn-primary">Go somewhere</a>
+            </div>
+        </div>
     </div>
-           </div>
-         {% endfor %}
+    {% endfor %}
 
-    </div>
+</div>
 </body>
 </html>
