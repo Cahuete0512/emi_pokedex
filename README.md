@@ -21,9 +21,9 @@ _Le Pokédex est un outil qui permet de recenser TOUS les Pokémons du jeu_
 
 * [Python](https://docs.python.org/3.9/) : Version 3.9.6
 
-* [Django](https://docs.djangoproject.com/en/4.1/) : Version 4.1.3
-
 * [pip](https://pip.pypa.io/en/stable/index.html) : Version 22.3.1
+
+* [Django](https://docs.djangoproject.com/en/4.1/) : Version 4.1.3
 
 * L'OS est de type **Windows** en version 10
 ***
@@ -31,7 +31,8 @@ _Le Pokédex est un outil qui permet de recenser TOUS les Pokémons du jeu_
 
 Le projet a été virtualisé avec un virtualenv. 
 
-Aucune installation supplémentaire n'est donc nécessaire.
+* Installer pip pour Python [pip](https://pip.pypa.io/en/stable/index.html) : Version 22.3.1
+* Installer Django [Django](https://docs.djangoproject.com/en/4.1/) : Version 4.1.3
 
 Clonez d’abord le référentiel à partir de Github et passez au nouveau répertoire :
 
@@ -49,11 +50,12 @@ Toutes les trois sont élèves en classe B3, groupe 2, cursus CDA option fullsta
 ***
 # Execution
 
+> SI VOUS UTILISEZ UN ENVIRONNEMENT VIRTUEL. SINON, PASSEZ A L ETAPE 3 : 
 * Activer l'environnement :
 ```
     $ cd emi_pokedex
     
-    $ django_env/bin/activate
+    $ nom_de_votre_venv/bin/activate
 ```
 
 * Désactiver l'environnement :
