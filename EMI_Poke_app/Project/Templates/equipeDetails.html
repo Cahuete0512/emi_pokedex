@@ -14,7 +14,7 @@
     <script src="{% static 'js/recherchePokemon.js' %}"></script>
 </head>
 <body>
-
+<h1 style="margin-left: 1000px;font-size: 60px">{{ equipe.name }}</h1>
 <div class="row row-cols-1 col-lg-12 row-cols-md-5 g-4">
     {% for pokemon in equipe.pokemons.all %}
         <div class="col">
@@ -29,6 +29,7 @@
                         {{ pokemon.abilities }}
                         {{ pokemon.weight }}
                     </p>
+                    <a href="#" class="align-self-end btn btn-lg btn-block btn-primary">Supprimer</a>
                 </div>
             </div>
         </div>
