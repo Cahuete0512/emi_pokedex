@@ -1,6 +1,8 @@
 import requests
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
+
+from .forms import EquipeForm
 from .models import Pokemon
 from .models import Equipe
 
@@ -92,26 +94,12 @@ def equipe(request):
     return render(request, './cartesEquipe.html', context)
 
 
-def equipe(request):
-    equipes = Equipe.objects.all()
-    if not equipes:
-        context = {
-            'equipe': 0,
-        }
-    else:
-        context = {
-            'equipe': 1,
-            'equipeList': equipes
-        }
-    return render(request, './cartesEquipe.html', context)
-
-
 def equipe_details(request, id):
     equipe = Equipe.objects.get(id=id)
     if not equipe:
         context = {
             'equipeExist': 0,
-            'equipeId' : id
+            'equipeId': id
         }
     else:
         context = {
@@ -120,3 +108,37 @@ def equipe_details(request, id):
             'equipeId': id,
         }
     return render(request, './equipeDetails.html', context)
+
+
+def create_equipe(request):
+    if request.method == 'POST':
+        form = EquipeForm(request.POST)
+        if form.is_valid():
+            form.save(commit=True)
+        return redirect('list_equipes')
+    else:
+        form = EquipeForm()
+    return render(request, './create_equipe.html', {'form': form})
+
+
+def update_equipe(request, id):
+    equipe = Equipe.objects.get(id=id)
+    form = EquipeForm(request.POST, instance=equipe)
+    if form.is_valid():
+        form.save()
+        return redirect('list_equipes')
+
+    else:
+        form = EquipeForm(instance=equipe)
+
+    context = {
+        'form': form,
+        'equipe': equipe,
+    }
+    return render(request, 'update_equipe.html', context)
+
+
+def delete_equipe(request, id):
+    equipe = Equipe.objects.get(id=id)
+    equipe.delete()
+    return redirect('index')
