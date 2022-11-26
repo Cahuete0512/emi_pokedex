@@ -2,71 +2,84 @@
 <html lang="fr">
 {% include 'base.html' %}
 {% load staticfiles %}
+{% load static %}
 <head>
 
-  <title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{% static '/static/css/style.css' %}">
 </head>
 <body style="background-image: none">
 
 <div class="container">
-  <div id="myCarousel" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-      <li data-target="#myCarousel" data-slide-to="2"></li>
-    </ol>
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
 
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner" style="background-color: #ffffff">
-
-
-      <div class="item active ">
-          <img src="{% static '/images/pokeball2copie.png' %}">
-      </div>
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" style="background-color: #ffffff">
 
 
-        {% for pokemon in pokemons %}
-      <div class="item " style="height: 700px;width:400px; margin-left: auto;margin-right: auto;">
-        <div class="col">
-    <div class="card" style="width: 400px;border: none">
-  <img class="card-img-top" src="{{pokemon.picture}}" alt="Card image cap">
-  <div class="card-body">
-    <h5 class="card-title">{{ weapon }}</h5>
-    <p class="card-text">
-    <p> Nom : {{pokemon.speciesName}} </p>
-    <br/>
-    <p> Type : {{pokemon.types}} </p>
-    <br/>
-    <p> Capacité : {{pokemon.abilities}} </p>
-    <br/>
-    <p> largeur : {{pokemon.weight}} </p>
+            <div class="item active ">
+                <img src="{% static '/images/pokeball2copie.png' %}">
+            </div>
 
-  </div>
+
+            {% for pokemon in pokemons %}
+                <div class="item " style="height: 700px;width:400px; margin-left: auto;margin-right: auto;">
+                    <div class="col">
+                        <div class="card" style="width: 400px;border: none">
+                            <img class="card-img-top" src="{{ pokemon.picture }}" alt="Card image cap">
+                            <div class="card-body" style="font-family: DejaVu Sans Mono, monospace; font-size: 20px;">
+                                <h5 class="card-title">{{ weapon }}</h5>
+                                <p class="card-text">
+                                <p id="nom_pokemon" style="text-shadow:   -1px -1px 0 #000,
+                                1px -1px 0 #000,
+                                -1px 1px 0 #000,
+                                 1px 1px 0 #000,
+                                 1px 1px 2px #141414,
+                                 1px 1px 3px #141414,
+                                 1px 1px 5px #141414,
+                                 1px 1px 7px #141414,
+                                 1px 1px 10px #141414,
+                                 1px 1px 12px #141414,
+                                 1px 1px 18px #141414;color:#fff;
+                            background-color:#ffffff;font-size:25px">
+                                <b>Nom : </b> {{ pokemon.speciesName }} </p>
+
+                                <p><b>Type : </b>{{ pokemon.types }} </p>
+
+                                <p><b> Capacité : </b>{{ pokemon.abilities }} </p>
+
+                                <p><b>Taille : </b> {{ pokemon.weight }} </p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+
+        </div>
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+            <span class="sr-only">Next</span>
+        </a>
     </div>
-           </div>
-      </div>
-        {% endfor %}
-
-    </div>
-
-    <!-- Left and right controls -->
-    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right"></span>
-      <span class="sr-only">Next</span>
-    </a>
-  </div>
 </div>
 </body>
 </html>
