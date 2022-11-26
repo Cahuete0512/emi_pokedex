@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="fr">
-{% include 'navBar.html' %}
+{% include 'base.html' %}
 <head>
     <meta charset="UTF-8">
     <title>cartes des équipes</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 </head>
 <body>
-    <h1>Cartes equipe 1</h1>
-    <div class="row row-cols-1 col-lg-12 row-cols-md-3 g-1">
+    <h1 style="text-align:center">Cartes equipe 1</h1>&nbsp;
+    <div class="row d-flex justify-content-center">
         {% for pokemon in pokemonsList %}
-        <div class="col">
-            <div class="card" style="width: 300px">
+        <div class="col-md-6" style="width: 300px;">
+            <div class="card">
                 <img class="card-img-top" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title">{{ pokemon }}</h5>
