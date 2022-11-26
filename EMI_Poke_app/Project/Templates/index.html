@@ -1,22 +1,50 @@
 <!doctype html>
-<html lang="fr">
+<html lang="fr" xmlns="http://www.w3.org/1999/html">
+{% include 'base.html' %}
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    {% load static %}
+    <script src="{% static 'js/recherchePokemon.js' %}"></script>
 </head>
 <body>
-    <div>
-        <h1>Bienvenue sur Django !</h1>
-        <p>Bonjour {{name}} !</p>
+
+<div class="card w-75 shadow p-3 mb-5 bg-whit gap-2 col-6 mx-auto">
+    <div class="card-header">
+        <div class="row align-items-start">
+            <div class="col">
+                <h5>Liste des Pokemons</h5>
+            </div>
+            <div class="col">
+                <input id="recherchebar" onkeyup="rechercherPokemon()" type="text" placeholder="Ex: Bulbasaur"
+                       class="w-vh-33-sm" style="float:left;" data-role="input" data-search-button="true">
+            </div>
+        </div>
     </div>
-    Voici la liste des armes à votre disposition :
-    <ul>
-        {% for weapon in weaponsList %}
-        <li>{{ weapon }}</li>
-        {% endfor %}
-    </ul>
+    <div class="container">
+        <table class="table table-striped table-hover table-bordered">
+            <thead>
+            <tr>
+                <th style="width:10%" scope="col">Espèce</th>
+                <th style="width:10%" scope="col">Types</th>
+                <th style="width:10%" scope="col">Capacités</th>
+                <th style="width:10%" scope="col">Poids</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for pokemon in pokemons %}
+                <tr class="pokemon_tr">
+                    <th scope="row">{{ pokemon.speciesName }}</th>
+                    <td>{{ pokemon.types }}</td>
+                    <td>{{ pokemon.abilities }}</td>
+                    <td>{{ pokemon.weight }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
 </body>
 </html>
