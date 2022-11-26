@@ -15,12 +15,15 @@
 </head>
 <body>
     <div class="create_equipe">
-        <h2>Nouvelle équipe :</h2>
+        <h2>Modification de l'équipe : {{ equipe.name }}</h2>
+        <div style="margin: 5%">
+        {% load crispy_forms_tags %}
         <form class="site-form" action="" method="post">
             {% csrf_token %}
-            {{ form }}
-            <input type="submit"  class="btn btn-primary" value="Modifier">
+            {{ form|crispy }}
+            <input type="submit" class="btn btn-success" value="Valider">
         </form>
+            </div>
     </div>
 </body>
 </html>

@@ -7,43 +7,10 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-    {% load static %}
+   {% load static %}
     <script src="{% static 'js/recherchePokemon.js' %}"></script>
 </head>
 <body>
-<div class="card w-75 shadow p-3 mb-5 bg-whit gap-2 col-6 mx-auto">
-    <div class="card-header">
-        <h5>Assignez un Pokemon à une équipe</h5>
-    </div>
-    <div class="card-body">
-        <!--        TODO : Mettre bon lien pour l action-->
-{#        <form action="{% url 'cartesEquipe_1' %}" method="post" style="margin-left:50px;">#}
-{#            <div class="form-row align-items-center">#}
-{#                <div class="form-group col-md-5">#}
-{#                    <label for="formPokemonToTeam">Nom du Pokemon à ajouter :</label>#}
-{#                    <input type="text" placeholder="Ex: Bulbasaur" class="form-control" id="formPokemonToTeam">#}
-{#                </div>#}
-{#                <br>#}
-{#                <div class="form-group col-md-5">#}
-{#                    <label for="inputTeam">Pour quelle équipe ?</label>#}
-{#                    <select id="inputTeam" class="form-control">#}
-{#                        <option selected>Choose...</option>#}
-{#                        <option>Equipe 1</option>#}
-{#                        <option>Equipe 2</option>#}
-{#                        <option>Equipe 3</option>#}
-{#                        <option>Equipe 4</option>#}
-{#                        <option>Equipe 5</option>#}
-{#                    </select>#}
-{#                </div>#}
-{#            </div>#}
-{#            <br>#}
-{#            <button type="submit" class="btn btn-primary">Valider</button>#}
-{#        </form>#}
-    </div>
-</div>&nbsp;
 
 <div class="card w-75 shadow p-3 mb-5 bg-whit gap-2 col-6 mx-auto">
     <div class="card-header">
@@ -62,10 +29,9 @@
         <thead>
         <tr>
            <th style="width:10%" scope="col">Espèce</th>
-                <th style="width:10%" scope="col">Type</th>
-                <th style="width:10%" scope="col">Capacité</th>
+                <th style="width:10%" scope="col">Types</th>
+                <th style="width:10%" scope="col">Capacités</th>
                 <th style="width:10%" scope="col">Poids</th>
-                <th style="width:10%" scope="col">Action</th>
       </tr>
         </thead>
         <tbody>
