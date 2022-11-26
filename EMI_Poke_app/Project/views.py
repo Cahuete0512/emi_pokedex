@@ -2,12 +2,13 @@ import requests
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Pokemon
+from .models import Equipe
 
 
 def index(request):
     pokemons = Pokemon.objects.all()
     context = {
-        'pokemons' : pokemons
+        'pokemons': pokemons
     }
     return render(request, './index.html', context)
 
@@ -78,8 +79,44 @@ def naviguer_entre_pokemon(request):
 
 
 def equipe(request):
-    context = {
-        'name': 'John Doe',
-        'pokemonsList': ['Epée', 'Bouclier', 'Petite cuillère', 'Test 1', 'Test 1']
-    }
+    equipes = Equipe.objects.all()
+    if not equipes:
+        context = {
+            'equipe': 0,
+        }
+    else:
+        context = {
+            'equipe': 1,
+            'equipeList': equipes
+        }
     return render(request, './cartesEquipe.html', context)
+
+
+def equipe(request):
+    equipes = Equipe.objects.all()
+    if not equipes:
+        context = {
+            'equipe': 0,
+        }
+    else:
+        context = {
+            'equipe': 1,
+            'equipeList': equipes
+        }
+    return render(request, './cartesEquipe.html', context)
+
+
+def equipe_details(request, id):
+    equipe = Equipe.objects.get(id=id)
+    if not equipe:
+        context = {
+            'equipeExist': 0,
+            'equipeId' : id
+        }
+    else:
+        context = {
+            'equipeExist': 1,
+            'equipe': equipe,
+            'equipeId': id,
+        }
+    return render(request, './equipeDetails.html', context)
