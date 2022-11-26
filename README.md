@@ -47,6 +47,16 @@ Cette application a été réalisée par :
 * **Mlle Ines BOUCARD**
 
 Toutes les trois sont élèves en classe B3, groupe 2, cursus CDA option fullstack à l'EPSI de Nantes.
+
+***
+# Choix
+
+Pour la récupération des données de l'api et leur utilisation, nous avons décidé de créer un premier appel qui collecte les 151 pokemons de première génération.
+Puis d'effectuer un second appel pour chaque pokémon pour récuperer leurs informations grâce à leur id envoyé en paramètre.
+Ces appels ne s'exécutuent qu'au lancement de l'application et nous permettent ensuite de récuperer toutes les données pour les enregistrer en base de données.
+Le premier lancement de l'application prend donc quelques secondes au vu du nombre de données à collecter mais nous permet d'avoir ensuite une application peu gourmande en ressources. 
+
+
 ***
 # Execution
 
@@ -73,4 +83,4 @@ Toutes les trois sont élèves en classe B3, groupe 2, cursus CDA option fullsta
 
 Pour accéder à l'application, il faut se rendre à l'URL :
 
->http://127.0.0.1:8000/app/hello/
+>http://127.0.0.1:8000/
