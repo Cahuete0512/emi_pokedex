@@ -9,75 +9,62 @@ from .models import Equipe
 
 def index(request):
     pokemons = Pokemon.objects.all()
-    context = {
-        'pokemons': pokemons
-    }
-    return render(request, './index.html', context)
+    if not pokemons:
+        r = requests.get('https://pokeapi.co/api/v2/generation/1')
+        if r.status_code == 200:
+            result = r.json()
+            tab_id_pokemon = []
+            tab_pokemon = []
+            for i in result['pokemon_species']:
 
+                id = str(i['url'][42])
+                if i['url'][43] != "/":
+                    id = id + str(i['url'][43])
+                tab_id_pokemon.append(id)
 
-def hello(request):
-    text = "<h1> Bienvenu sur le Pokedex d'EMI ! <h1><p><p>"
-    return HttpResponse(text)
+                # 2ème appel pour récuperer les informations de chaque pokemon grace à leur id
+                r2 = requests.get('https://pokeapi.co/api/v2/pokemon/' + id + '/')
+                if r2.status_code == 200:
 
+                    result_pokemon = r2.json()
 
-def result(request, number):
-    text = "Le resultat de la requete %d." % number
-    return HttpResponse(text)
+                    pokemon = Pokemon()
+                    pokemon.speciesName = result_pokemon['species']['name']
+                    pokemon.picture = result_pokemon['sprites']['front_default']
 
+                    # Récupération des noms des types des pokemons
+                    types = ""
+                    for element in result_pokemon['types']:
+                        types = str(element["type"]["name"]) + " " + types
+                    pokemon.types = types
 
-def api_call(request):
-    r = requests.get('https://pokeapi.co/api/v2/generation/1')
-    if r.status_code == 200:
-        result = r.json()
-        tabId = []
-        tabPokemon = []
-        for i in result['pokemon_species']:
+                    # Récupération des noms des abilités des pokemons
+                    abilities = ""
+                    for element in result_pokemon['abilities']:
+                        abilities = str(element["ability"]["name"]) + " " + abilities
+                    pokemon.abilities = abilities
 
-            id = str(i['url'][42])
-            if i['url'][43] != "/":
-                id = id + str(i['url'][43])
-            tabId.append(id)
+                    pokemon.weight = result_pokemon['weight']
+                    pokemon.save()
 
-            # 2ème appel pour récuperer les informations de chaque pokemon grace à leur id
-            r2 = requests.get('https://pokeapi.co/api/v2/pokemon/' + id + '/')
-            if r2.status_code == 200:
+                    tab_pokemon.append(pokemon)
 
-                resultPokemon = r2.json()
-
-                pokemon = Pokemon()
-                pokemon.speciesName = resultPokemon['species']['name']
-                pokemon.picture = resultPokemon['sprites']['front_default']
-
-                # Récupération des noms des types des pokemons
-                types = ""
-                for element in resultPokemon['types']:
-                    types = str(element["type"]["name"]) + " " + types
-                pokemon.types = types
-
-                # Récupération des noms des abilités des pokemons
-                abilities = ""
-                for element in resultPokemon['abilities']:
-                    abilities = str(element["ability"]["name"]) + " " + abilities
-                pokemon.abilities = abilities
-
-                pokemon.weight = resultPokemon['weight']
-                pokemon.save()
-
-                tabPokemon.append(pokemon)
-
+            context = {
+                'pokemonList': tab_pokemon
+            }
+    else:
         context = {
-            'pokemonList': tabPokemon
+            'pokemons': pokemons
         }
-        return render(request, './pokemonPage.html', context)
-    return HttpResponse('Could not save data')
+    return render(request, './index.html', context)
 
 
 def naviguer_entre_pokemon(request):
     pokemons = Pokemon.objects.all()
     context = {
-        'pokemons' : pokemons
+        'pokemons': pokemons
     }
-    return render(request, './naviguerEntrePokemon.html', context)
+    return render(request, './naviguer_entre_pokemon.html', context)
 
 
 def equipe(request):
@@ -91,7 +78,7 @@ def equipe(request):
             'equipe': 1,
             'equipeList': equipes
         }
-    return render(request, './cartesEquipe.html', context)
+    return render(request, './cartes_equipe.html', context)
 
 
 def equipe_details(request, id):
@@ -107,7 +94,7 @@ def equipe_details(request, id):
             'equipe': equipe,
             'equipeId': id,
         }
-    return render(request, './equipeDetails.html', context)
+    return render(request, './equipe_details.html', context)
 
 
 def create_equipe(request):

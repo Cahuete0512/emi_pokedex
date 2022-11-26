@@ -14,16 +14,16 @@
     <script src="{% static 'js/recherchePokemon.js' %}"></script>
 </head>
 <body>
-    <div class="create_equipe">
-        <h2>Modification de l'équipe : {{ equipe.name }}</h2>
-        <div style="margin: 5%">
+<div class="create_equipe">
+    <h2>Modification de l'équipe : {{ equipe.name }}</h2>
+    <div style="margin: 5%">
         {% load crispy_forms_tags %}
         <form class="site-form" action="" method="post">
             {% csrf_token %}
             {{ form|crispy }}
             <input type="submit" class="btn btn-success" value="Valider">
         </form>
-            </div>
     </div>
+</div>
 </body>
 </html>

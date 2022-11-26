@@ -7,7 +7,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-   {% load static %}
+    {% load static %}
     <script src="{% static 'js/recherchePokemon.js' %}"></script>
 </head>
 <body>
@@ -26,69 +26,24 @@
     </div>
     <div class="container">
         <table class="table table-striped table-hover table-bordered">
-        <thead>
-        <tr>
-           <th style="width:10%" scope="col">Espèce</th>
+            <thead>
+            <tr>
+                <th style="width:10%" scope="col">Espèce</th>
                 <th style="width:10%" scope="col">Types</th>
                 <th style="width:10%" scope="col">Capacités</th>
                 <th style="width:10%" scope="col">Poids</th>
-      </tr>
-        </thead>
-        <tbody>
+            </tr>
+            </thead>
+            <tbody>
             {% for pokemon in pokemons %}
-        <tr class="pokemon_tr">
-            <th scope="row">{{pokemon.speciesName}}</th>
-            <td>{{pokemon.types}}</td>
-            <td>{{pokemon.abilities}}</td>
-            <td>{{pokemon.weight}}</td>
-        </tr>
+                <tr class="pokemon_tr">
+                    <th scope="row">{{ pokemon.speciesName }}</th>
+                    <td>{{ pokemon.types }}</td>
+                    <td>{{ pokemon.abilities }}</td>
+                    <td>{{ pokemon.weight }}</td>
+                </tr>
             {% endfor %}
-    </table>
-
-
-
-
-
-
-
-{#<!--        FIXME : Supprimer quand précédent décommenté-->#}
-{#        <table class="table table-striped table-hover table-bordered">#}
-{#            <thead>#}
-{#            <tr>#}
-{#                <th style="width:10%" scope="col">Espèce</th>#}
-{#                <th style="width:10%" scope="col">Type</th>#}
-{#                <th style="width:10%" scope="col">Capacité</th>#}
-{#                <th style="width:10%" scope="col">Poids</th>#}
-{#                <th style="width:10%" scope="col">Action</th>#}
-{#            </tr>#}
-{#            </thead>#}
-{#            <tbody>#}
-{#            <tr class="pokemon_tr">#}
-{#                <th scope="row">Bulbasaur</th>#}
-{#                <td>Grass, Poison</td>#}
-{#                <td>overgrow, chlorophyll</td>#}
-{#                <td>69</td>#}
-{#                <!--            TODO : Mettre lien dynamiquement de la page "naviguerEntrePokemon/{id_Pokemon}" pour chaque Pokemon dans l'itération sur le tableau"-->#}
-{#                <td><a href="{% url 'naviguerEntrePokemon' %}">Détails</a></td>#}
-{#            </tr>#}
-{#            <tr class="pokemon_tr" >#}
-{#                <!--            TODO : Mettre lien de Amaura de la page "naviguerEntre Pokemon"-->#}
-{#                <th scope="row">Amaura</th>#}
-{#                <td>Rock, Ice</td>#}
-{#                <td>refrigerate, snow warning</td>#}
-{#                <td>25,2</td>#}
-{#                <td>Détails</td>#}
-{#            </tr>#}
-{#            <tr class="pokemon_tr">#}
-{#                <th scope="row">Butterfree</th>#}
-{#                <td>Bug, Flying</td>#}
-{#                <td>compound eyes, tinted Lens</td>#}
-{#                <td>32</td>#}
-{#                <td>Détails</td>#}
-{#            </tr>#}
-{#        </table>#}
-{#    </div>#}
-{#</div>&nbsp;#}
+        </table>
     </div>
 </div>
 </body>
