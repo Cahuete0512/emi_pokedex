@@ -1,7 +1,6 @@
 <!doctype html>
 <html lang="fr">
 {% include 'base.html' %}
-{% load staticfiles %}
 {% load static %}
 <head>
 
@@ -31,7 +30,7 @@
 
 
             <div class="item active ">
-                <img src="{% static '/images/pokeball2copie.png' %}">
+                <img src="{% static '/images/pokeball2copie.png' %}" style="align-self: center">
             </div>
 
 
@@ -55,7 +54,7 @@
                                  1px 1px 12px #141414,
                                  1px 1px 18px #141414;color:#fff;
                             background-color:#ffffff;font-size:25px">
-                                <b>Nom : </b> {{ pokemon.speciesName }} </p>
+                                    <b>Nom : </b> {{ pokemon.speciesName }} </p>
 
                                 <p><b>Type : </b>{{ pokemon.types }} </p>
 
