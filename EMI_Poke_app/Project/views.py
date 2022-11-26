@@ -70,9 +70,9 @@ def api_call(request):
 
 
 def naviguer_entre_pokemon(request):
+    pokemons = Pokemon.objects.all()
     context = {
-        'name': 'John Doe',
-        'weaponsList': ['Epée', 'Bouclier', 'Petite cuillère', 'Test 1', 'Test 1', 'Test 1', 'Test 1']
+        'pokemons' : pokemons
     }
     return render(request, './naviguerEntrePokemon.html', context)
 
