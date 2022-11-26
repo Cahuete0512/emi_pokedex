@@ -36,7 +36,13 @@ Le projet a été virtualisé avec un virtualenv.
 
 Clonez d’abord le référentiel à partir de Github et passez au nouveau répertoire :
 
->    $ git clone https://github.com/Cahuete0512/emi_pokedex.git
+>   $ git clone https://github.com/Cahuete0512/emi_pokedex.git
+
+* Pour obtenir les tables de la base de données, exécutez : 
+
+>   $ python manage.py makemigrations
+
+>   $ python manage.py migrate 
 ***
 # Collaboration
 
