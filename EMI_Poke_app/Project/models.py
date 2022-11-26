@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Person(models.Model):
     name = models.CharField(max_length=30)
     age = models.IntegerField()
@@ -8,7 +9,9 @@ class Person(models.Model):
     def __str__(self):
         return self.name
 
+
 class Pokemon(models.Model):
+    id = models.IntegerField
     speciesName = models.CharField(max_length=30)
     picture = models.CharField(max_length=100)
     types = models.CharField(max_length=30)
@@ -20,5 +23,9 @@ class Pokemon(models.Model):
         return self.speciesName
 
 
+class Equipe(models.Model):
+    name = models.CharField(max_length=30)
+    pokemons = models.ManyToManyField(Pokemon)
 
-
+    def __str__(self):
+        return self.name

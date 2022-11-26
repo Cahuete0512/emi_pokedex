@@ -26,31 +26,44 @@ def api_call(request):
     r = requests.get('https://pokeapi.co/api/v2/generation/1')
     if r.status_code == 200:
         result = r.json()
-        tab = []
-        resultPokemon = []
-        pokemonImage = []
+        tabId = []
+        tabPokemon = []
         for i in result['pokemon_species']:
 
             id = str(i['url'][42])
             if i['url'][43] != "/":
                 id = id + str(i['url'][43])
-            tab.append(id)
+            tabId.append(id)
 
-            #     je refais un appel avec l'id
+            # 2ème appel pour récuperer les informations de chaque pokemon grace à leur id
             r2 = requests.get('https://pokeapi.co/api/v2/pokemon/' + id + '/')
             if r2.status_code == 200:
-                result3 = r2.json()
+
+                resultPokemon = r2.json()
+
                 pokemon = Pokemon()
-                pokemon.speciesName = result3['species']['name']
-                pokemon.picture = result3['sprites']['front_default']
-                pokemon.types = "test"
-                pokemon.abilities = "abilities"
-                pokemon.weight = "20"
+                pokemon.speciesName = resultPokemon['species']['name']
+                pokemon.picture = resultPokemon['sprites']['front_default']
+
+                # Récupération des noms des types des pokemons
+                types = ""
+                for element in resultPokemon['types']:
+                    types = str(element["type"]["name"]) + " " + types
+                pokemon.types = types
+
+                # Récupération des noms des abilités des pokemons
+                abilities = ""
+                for element in resultPokemon['abilities']:
+                    abilities = str(element["ability"]["name"]) + " " + abilities
+                pokemon.abilities = abilities
+
+                pokemon.weight = resultPokemon['weight']
                 pokemon.save()
-                resultPokemon.append(pokemon)
+
+                tabPokemon.append(pokemon)
 
         context = {
-            'pokemonList': resultPokemon
+            'pokemonList': tabPokemon
         }
         return render(request, './pokemonPage.html', context)
     return HttpResponse('Could not save data')
